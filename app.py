@@ -7,7 +7,7 @@ from flask import send_from_directory
 import os
 import glob
 
-app = Flask("Image Classifier Server", static_url_path='/Users/piyush/Documents/koala_bear/')
+app = Flask("Image Classifier Server")
 parser = argparse.ArgumentParser()
 parser.add_argument("--root_dir", required=True, help="Root Directory of Sample Images")
 parser.add_argument("--upload_dir", default='uploads', help="Root Directory of Sample Images")
