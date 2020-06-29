@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+  var  clicked_btn = function(){
+    console.log("TEST");
+  }
+  </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.cx {
+  float: left;
+  width: 80%;
+  padding: 10px;
+}
+
+.cy {
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<h2>TCGA Patch CNN classifier demo</h2>
+
+<div class="row">
+  <!-- left col -->
+  <div class="cx" style="background-color:#fff;">
+    <p>Upload image to classify:</p>
+    <input type="file" id="upload_btn" value="Upload Image" onclick="clicked_btn">
+    <h2>OR</h2>
+    <p>Select an image from below:</p>
+    <!-- {% for path in img_paths %}
+    <img src='{{ path }}' height=200 width=200>
+    {% endfor %} -->
+
+    {% for name in names %}
+    <img src='uploads/{{ name }}' height=200 width=200>
+    {% endfor %}
+
+  </div>
+
+  <!-- right col -->
+  <div class="cy" style="background-color:#fff;">
+    <img id="blah" src="#" alt="classiying this" height=200 width=200 onclick="clicked_img" />
+    <p>Some text..</p>
+  </div>
+
+</div>
+</body>
+</html>
