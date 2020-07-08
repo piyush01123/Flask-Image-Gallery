@@ -6,70 +6,21 @@
 * {
   box-sizing: border-box;
 }
-
-/* Create two equal columns that floats next to each other */
-.cx {
-  float: left;
-  width: 80%;
-  padding: 10px;
-}
-
-.cy {
-  float: left;
-  width: 20%;
-  padding: 10px;
-}
-
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 </style>
-<script type="text/javascript">
+<script type="text/javascript" >
   function clicked_img(img){
-            document.getElementById('blah').src = img.src;
+            // document.getElementById('blah').src = img.src;
+            console.log(img.src);
    }
-    function clicked_btn(input) {
-            console.log("clicked_btn msg");
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                console.log('READER');
-                document.getElementById('blah').src = e.target.result;
-            };
-            reader.readAsDataURL(input.files[0]);
-    }
 </script>
 </head>
 <body>
 
-<h2>TCGA Patch CNN classifier demo</h2>
-
-<div class="row">
-  <!-- left col -->
+<h2>Flask Image Gallery</h2>
   <div class="cx" style="background-color:#fff;">
-    <p>Upload image to classify:</p>
-    <input type="file" id="upload_btn" value="Upload Image" onchange="clicked_btn(this)">
-    <h2>OR</h2>
-    <p>Select an image from below:</p>
-    <!-- {% for path in img_paths %}
-    <img src='{{ path }}' height=200 width=200>
-    {% endfor %} -->
-
-    {% for name in names %}
-    <img src='uploads/{{ name }}' height=200 width=200 onclick="clicked_img(this)" >
+    {% for path in paths %}
+    <img src='uploads/{{ path }}' height=200 width=200 onclick="clicked_img(this)" >
     {% endfor %}
-
   </div>
-
-  <!-- right col -->
-  <div class="cy" style="background-color:#fff;">
-    <img id="blah" src="#" alt="classiying this" height=200 width=200 />
-    <p>Some text..</p>
-  </div>
-
-</div>
 </body>
 </html>

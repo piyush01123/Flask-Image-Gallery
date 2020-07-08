@@ -1,10 +1,9 @@
 
-### Image Classification Server
+### Flask Image Gallery
 
 ```
-python3 app.py \
-  --root_dir /Users/piyush/Documents/koala_bear/
+python app.py /Users/piyush/Downloads/
 ```
 
 
-<img src='Screenshot 2020-06-29 at 12.24.32 PM.png'>
+<!-- <img src='Screenshot 2020-06-29 at 12.24.32 PM.png'> -->
