@@ -11,16 +11,34 @@ body {
 * {
   box-sizing: border-box;
 }
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
 </style>
 <script type="text/javascript" >
   function clicked_img(img){
             console.log(img.src);
+            var top=document.getElementById('top')
+            top.src = img.src;
+            top.hidden=false;
+            if (img.naturalWidth<screen.width*0.8 && img.naturalHeight<screen.height*0.8) {
+              top.width=img.naturalWidth;
+              top.height=img.naturalHeight;
+            } else {
+              top.width=screen.width*0.8;
+              top.height=img.naturalHeight/img.naturalWidth*top.width;
+            }
    }
 </script>
 </head>
 <body>
 
 <h2>Flask Image Gallery</h2>
+  <div class="overlay"><img src="blah" id="top" hidden=True></div>
   <div class="cx" style="background-color:#fff;">
     {% for path in paths %}
     <img src='content/{{ path }}' height=200 width=200 onclick="clicked_img(this)" >
