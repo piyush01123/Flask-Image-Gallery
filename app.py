@@ -17,12 +17,13 @@ def home():
     for root,dirs,files in os.walk(root_dir):
         for file in files:
             if any(file.endswith(ext) for ext in IMAGE_EXTS):
-                image_paths.append(os.path.join(root,file))
+                image_paths.append(os.path.join(root,file).replace('/','__'))
     return render_template('index.html', paths=image_paths)
 
-@app.route('/uploads/<path:filename>')
-def download_file(filename):
-    return send_from_directory(args.root_dir, filename, as_attachment=False)
+@app.route('/content/<path:filepath>')
+def download_file(filepath):
+    dir,filename = os.path.split(filepath.replace('__','/'))
+    return send_from_directory(dir, filename, as_attachment=False)
 
 if __name__=="__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
