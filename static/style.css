@@ -16,3 +16,14 @@ body {
   transform: translate(-50%, -50%);
 
 }
+
+#top {
+  border: 5px solid #ccc;
+}
+
+#close {
+  position: fixed;
+  top: 102%;
+  left:50%;
+  transform: translate(-102%, -50%);
+}

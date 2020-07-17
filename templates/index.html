@@ -7,7 +7,9 @@
 </head>
 <body>
 <h1>Flask Image Gallery</h1>
-  <div class="overlay"><img src="blah" id="top" hidden=True></div>
+  <div class="overlay"><img src="blah" id="top" hidden=True>
+    <span id="close" hidden=True onclick=do_close()><b><u>CLOSE(X)</u></b></span>
+  </div>
   <div class="cx" style="background-color:#fff;">
     {% for path in paths %}
     <img src='cdn/{{ path }}' height=200 width=200 onclick="clicked_img(this)" >
